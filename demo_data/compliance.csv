@@ -1,0 +1,6 @@
+SessionID,User,Acknowledged,SessionLength,LoginFrequency
+201,Alice,1,30,5
+202,Bob,0,45,3
+203,Charlie,1,25,6
+204,Alice,1,40,7
+205,Bob,0,50,2
