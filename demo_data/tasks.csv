@@ -1,6 +1,31 @@
 TaskID,AssignedTo,Status,EstimatedHours,ActualHours
-1,Alice,Completed,5,6
-2,Bob,In Progress,8,9
-3,Charlie,Completed,3,4
-4,Alice,Completed,6,5
-5,Bob,In Progress,7,8
+1,Charlie,Completed,3,10
+2,Alice,Completed,5,2
+3,Charlie,Completed,3,10
+4,Charlie,Completed,3,8
+5,Alice,In Progress,7,10
+6,Alice,Completed,5,9
+7,Charlie,Completed,7,2
+8,Bob,Completed,8,9
+9,Charlie,Completed,9,9
+10,Charlie,Completed,8,4
+11,Charlie,Completed,9,2
+12,Charlie,Completed,7,9
+13,Alice,In Progress,8,4
+14,Charlie,In Progress,5,4
+15,Bob,In Progress,2,2
+16,Alice,Completed,7,6
+17,Bob,Completed,9,11
+18,Bob,Completed,6,8
+19,Bob,Completed,9,11
+20,Bob,Completed,6,10
+21,Alice,Completed,3,8
+22,Alice,Completed,8,10
+23,Bob,In Progress,6,9
+24,Bob,Completed,9,3
+25,Alice,Completed,3,2
+26,Alice,Completed,2,8
+27,Alice,Completed,5,8
+28,Charlie,Completed,5,9
+29,Charlie,Completed,5,6
+30,Charlie,In Progress,6,4

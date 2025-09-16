@@ -1,42 +1,55 @@
-import numpy as np
-from agents.ProductivityAgent import ProductivityAgent
-from agents.SentimentAgent import SentimentAgent
-from agents.ComplianceAgent import ComplianceAgent
-from agents.InteractionAgent import InteractionAgent
-from agents.CorrelationEngine import CorrelationEngine
+from langgraph.graph import StateGraph, START
+from graph_nodes import productivity_node, sentiment_node, compliance_node, interaction_node, correlation_node
+from state_schema import AgentState
+import pandas as pd
 
 if __name__ == "__main__":
-    # Paths to demo datasets
-    TASKS_PATH = "demo_data/tasks.csv"
-    EMAILS_PATH = "demo_data/emails.csv"
-    COMPLIANCE_PATH = "demo_data/compliance.csv"
-    MESSAGES_PATH = "demo_data/messages.csv"
+    graph = StateGraph(AgentState)
 
-    # Initialize agents (AI mode for demo)
-    prod_agent = ProductivityAgent(TASKS_PATH, mode="ai")
-    sent_agent = SentimentAgent(EMAILS_PATH, mode="baseline")   # use baseline first (AI slower)
-    comp_agent = ComplianceAgent(COMPLIANCE_PATH, mode="ai")
-    inter_agent = InteractionAgent(MESSAGES_PATH, mode="baseline")
-    engine = CorrelationEngine(mode="baseline")
+    # Add nodes
+    graph.add_node("productivity", productivity_node)
+    graph.add_node("sentiment", sentiment_node)
+    graph.add_node("compliance", compliance_node)
+    graph.add_node("interaction", interaction_node)
+    graph.add_node("correlation", correlation_node)
 
-    # Train AI models where required
-    prod_agent.train()
-    comp_agent.train()
+    # ✅ Define entrypoint
+    graph.add_edge(START, "productivity")
+    graph.add_edge(START, "sentiment")
+    graph.add_edge(START, "compliance")
+    graph.add_edge(START, "interaction")
 
-    # Collect metrics
-    TCR = prod_agent.calculate_tcr()  # task completion rate
-    SPI = sent_agent.calculate_spi()  # sentiment polarity index
-    DCR = comp_agent.calculate_dcr()  # disclosure compliance
-    CI = inter_agent.calculate_ci()   # collaboration index
+    # Connect agents to correlation
+    graph.add_edge("productivity", "correlation")
+    graph.add_edge("sentiment", "correlation")
+    graph.add_edge("compliance", "correlation")
+    graph.add_edge("interaction", "correlation")
 
-    print("=== Demo Results ===")
-    print("Task Completion Ratio (TCR):", round(TCR, 2))
-    print("Sentiment Polarity Index (SPI):", round(SPI, 2))
-    print("Disclosure Compliance Rate (DCR):", round(DCR, 2))
-    print("Collaboration Index (CI):", round(CI, 2))
+    # Compile and run
+    app = graph.compile()
+    final_state = app.invoke(AgentState())
 
-    # Correlation Engine demo
-    X = np.array([[TCR, SPI, DCR, CI]])
-    y = np.array([0.8])  # synthetic outcome for demo
-    score = engine.run_regression(X, y)
-    print("Outcome Correlation Score (OCS):", round(score, 2))
+    print("\n=== Detailed Multi-AI Agent Results ===")
+
+    # Load merged dataset
+    df = pd.read_csv("results/merged_metrics.csv")
+
+    # Show first few rows of per-agent data
+    print("\n📊 Sample of merged per-entity metrics:")
+    print(df.head())
+
+    # Compute and display averages
+    avg_TCR = df["TCR"].mean()
+    avg_SPI = df["SPI"].mean()
+    avg_DCR = df["DCR"].mean()
+    avg_CI = df["CI"].mean()
+
+    print("\n📈 Aggregated Metrics:")
+    print(f"Average Task Completion Ratio (TCR): {avg_TCR:.2f}%")
+    print(f"Average Sentiment Polarity Index (SPI): {avg_SPI:.2f}")
+    print(f"Average Disclosure Compliance Rate (DCR): {avg_DCR:.2f}%")
+    print(f"Average Collaboration Index (CI): {avg_CI:.2f}")
+
+    # Show final correlation score
+    ocs = final_state.get("OCS", None)
+    print(f"\n🔗 Outcome Correlation Score (OCS): {ocs}")

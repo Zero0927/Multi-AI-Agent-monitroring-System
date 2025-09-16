@@ -1,16 +1,13 @@
-from sklearn.ensemble import RandomForestRegressor
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
 class CorrelationEngine:
-    def __init__(self, mode="baseline"):
-        self.mode = mode
-        if mode == "ai":
-            self.model = RandomForestRegressor()
+    def __init__(self):
+        self.model = LinearRegression()
 
     def run_regression(self, X, y):
-        if self.mode == "ai":
-            self.model.fit(X, y)
-            return self.model.score(X, y)
-        else:
-            # Simple correlation (baseline)
-            import numpy as np
-            return np.corrcoef(X.flatten(), y.flatten())[0, 1]
+        if len(X) < 2:
+            print("⚠️ Not enough samples for correlation. Provide N ≥ 2.")
+            return np.nan  
+        self.model.fit(X, y)
+        return self.model.score(X, y)  # R² score
