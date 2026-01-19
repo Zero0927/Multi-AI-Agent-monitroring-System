@@ -1,0 +1,3 @@
+Productivity Agent: https://www.kaggle.com/datasets/digrok/agile-project-dataset-2024
+Compliance Agent: https://www.kaggle.com/datasets/tfisthis/enterprise-genai-adoption-and-workforce-impact-data
+Sentiment Agent: https://www.kaggle.com/datasets/abhishekjaiswal4896/mental-health-of-remote-workers

@@ -14,7 +14,7 @@ The Multi-AI Agent System integrates multiple specialized AI modules that proces
 - **Purpose:** Measures task completion rates from project/task management data.
 - **Formula:**
 ```math
-TCR = (\frac{Tasks_{Completed}}{Tasks_{Assigned}}) \times 100
+TCR = \left(\frac{Tasks_{Completed}}{Tasks_{Assigned}}\right) \times 100
 ```
 - **Metric:** Task Completion Ratio (%)
 
@@ -30,7 +30,7 @@ SPI = \frac{\sum Sentiment_{Score}}{n}
 - **Purpose:** Tracks adherence to monitoring disclosures and policy acknowledgments.
 - **Formula:**
 ```math
-DCR = (\frac{Acknowledgements}{Total_{Sessions}}) \times 100
+DCR = \left(\frac{Acknowledgements}{Total_{Sessions}}\right) \times 100
 ```
 - **Metric:** Disclosure Compliance Rate (%)
 
@@ -52,12 +52,12 @@ OCS = R^2(Metrics, Outcome)
 
 ## 📊 Example Metrics Table
 | Agent           | Metric  | Example Value |
-|----------------|---------|--------------|
-| Productivity   | TCR     | 82%          |
-| Sentiment      | SPI     | 0.45         |
-| Compliance     | DCR     | 78%          |
-| Interaction    | CI      | 0.64         |
-| Correlation    | OCS     | 0.81         |
+|-----------------|---------|---------------|
+| Productivity    | TCR     | 82%           |
+| Sentiment       | SPI     | 0.45          |
+| Compliance      | DCR     | 78%           |
+| Interaction     | CI      | 0.64          |
+| Correlation     | OCS     | 0.81          |
 
 ## 🛠 Tech Stack
 - **Language:** Python 3.11+
@@ -65,7 +65,34 @@ OCS = R^2(Metrics, Outcome)
 - **Database:** PostgreSQL or MongoDB
 - **Visualization:** Plotly Dash
 
+---
+
+## 🧩 Setup Instructions
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/your-username/Multi-AI-Agent-Monitoring-System.git
+cd Multi-AI-Agent-Monitoring-System
+```
+
+### 2. Create a Virtual Environment
+```bash
+python3 -m venv venv
+source venv/bin/activate    # On Linux/Mac
+venv\Scripts\activate       # On Windows
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run Example
+```bash
+python main.py
+```
+
+---
+
 ## 📄 License
 This project is open-sourced under the MIT License.
-
-

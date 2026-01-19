@@ -1,0 +1,14 @@
+langgraph
+langchain
+langchain-openai
+langchain-community
+langchain-core
+pandas
+numpy
+scikit-learn
+textblob
+openpyxl
+scipy
+matplotlib
+seaborn
+python-dotenv
