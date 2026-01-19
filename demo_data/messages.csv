@@ -1,0 +1,31 @@
+MessageID,sender,receiver,is_reply,message
+301,Charlie,Bob,1,I think we need more resources.
+302,Charlie,Alice,1,Thanks for the update!
+303,Alice,Bob,0,"Yes, I will check it soon."
+304,Alice,Alice,1,Starting work on the project now.
+305,Charlie,Bob,1,I think we need more resources.
+306,Charlie,Charlie,1,Collaboration makes this easier.
+307,Bob,Alice,1,I think we need more resources.
+308,Charlie,Alice,1,Can you review my code?
+309,Bob,Alice,0,"Yes, I will check it soon."
+310,Bob,Alice,0,"Deadline is tomorrow, let’s push!"
+311,Bob,Bob,1,Thanks for the update!
+312,Bob,Alice,1,"Deadline is tomorrow, let’s push!"
+313,Bob,Charlie,1,"Yes, I will check it soon."
+314,Alice,Charlie,1,"Yes, I will check it soon."
+315,Charlie,Alice,1,"Yes, I will check it soon."
+316,Bob,Charlie,1,"Deadline is tomorrow, let’s push!"
+317,Charlie,Alice,1,Collaboration makes this easier.
+318,Charlie,Alice,1,"Yes, I will check it soon."
+319,Bob,Charlie,1,I think we need more resources.
+320,Alice,Alice,1,"Deadline is tomorrow, let’s push!"
+321,Bob,Charlie,1,"Yes, I will check it soon."
+322,Alice,Bob,0,I think we need more resources.
+323,Charlie,Alice,0,Collaboration makes this easier.
+324,Alice,Bob,0,Can you review my code?
+325,Alice,Charlie,1,Collaboration makes this easier.
+326,Alice,Bob,0,"Yes, I will check it soon."
+327,Charlie,Bob,1,"Deadline is tomorrow, let’s push!"
+328,Charlie,Charlie,1,Starting work on the project now.
+329,Alice,Bob,0,"Yes, I will check it soon."
+330,Alice,Bob,1,Starting work on the project now.
